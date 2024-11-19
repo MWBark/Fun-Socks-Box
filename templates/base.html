@@ -36,6 +36,19 @@
     <title>Fun Socks Box {% block extra_title %}{% endblock %}</title>
 </head>
 <body>
+
+    {% if messages %}
+        <div class="message-container"></div>
+    {% endif %}
+
+    {% block page-header %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% block postloadjs %}
+    {% endblock %}
     
 </body>
 </html>

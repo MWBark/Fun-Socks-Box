@@ -1,0 +1,1 @@
+web: gunicorn fun_socks_box.wsgi:application

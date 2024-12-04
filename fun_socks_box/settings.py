@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'subscription',
 
     # other
-    'storage',
+    'storages',
 ]
 
 MIDDLEWARE = [

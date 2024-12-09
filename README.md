@@ -4,6 +4,8 @@ Fun Socks Box is a B2C (business to customer) e-commerce site that focuses prima
 
 According to the online e-commerce platform Shopify in their blog article titled ‘20 Trending Products and Things to Sell Online (2024)’ found [here](https://www.shopify.com/uk/blog/trending-products?term=&adid=595096101745&campaignid=17075828612&utm_medium=cpc&utm_source=google&gad_source=1&gclid=EAIaIQobChMInsKR2qKfiQMV36BaBR2QEi4gEAAYASAAEgKmivD_BwE&cmadid=516586848;cmadvertiserid=10730501;cmcampaignid=26990768;cmplacementid=324286430;cmcreativeid=163722649;cmsiteid=5500011#10), listing the top 20 trending products sold by US Shopify merchants, socks are simple yet profitable choice for e-commerce brands. It also states that socks are a popular choice for subscription boxes.
 
+[Link to the live website](https://mwbark-funsocksbox-6de564e8a4a8.herokuapp.com/)
+
 ## Planning
 
 <details>
@@ -20,3 +22,30 @@ According to the online e-commerce platform Shopify in their blog article titled
 <br>
 
 [Desktop Wireframes pdf](documentation/wireframes-desktop.pdf)
+</details>
+
+### Agile Methodology
+
+## Features
+
+### Existing features
+
+### Future features
+
+## Testing
+
+## Bugs
+
+### Fixed
+
+### Remaining
+
+## Deployment
+
+## Credits
+
+### Code
+
+### Media
+
+## Acknowledgements

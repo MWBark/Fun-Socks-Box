@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from .models import Product, ProductImage
 
@@ -16,3 +16,17 @@ def products(request):
             'images': images
         }
     )
+
+
+def product_detail(request, product_id):
+    """ A view to show individual product details """
+
+    product = get_object_or_404(Product, pk=product_id)
+    images = ProductImage.objects.filter(product=product)
+
+    context = {
+        'product': product,
+        'images': images,
+    }
+
+    return render(request, 'products/product_detail.html', context)

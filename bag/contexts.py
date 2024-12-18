@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404
 from django.conf import settings
 from decimal import Decimal
-from products.models import Product
+from products.models import Product, ProductImage
 
 def bag_contents(request):
 
@@ -22,6 +22,8 @@ def bag_contents(request):
             })
         else:
             product = get_object_or_404(Product, pk=item_id)
+            product_images = ProductImage.objects.filter(product=product)
+            display_image = product_images[0]
             for size, quantity in item_data['items_by_size'].items():
                 total += quantity * product.price
                 product_count += quantity
@@ -29,11 +31,14 @@ def bag_contents(request):
                     'item_id': item_id,
                     'quantity': quantity,
                     'product': product,
+                    'display_image': display_image,
                     'size': size,
                 })
 
+    print(bag_items)
 
-    if total < settings.FREE_DELIVERY_THRESHOLD:
+
+    if total < settings.FREE_DELIVERY_THRESHOLD and product_count > 0:
         delivery = Decimal(settings.STANDARD_DELIVERY)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
     else:

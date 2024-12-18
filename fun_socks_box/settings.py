@@ -48,8 +48,10 @@ INSTALLED_APPS = [
     'subscription',
     'profiles',
     'bag',
+    'checkout',
 
     # other
+    'crispy_forms',
     'storages',
 ]
 
@@ -84,6 +86,10 @@ TEMPLATES = [
                 'django.template.context_processors.media',
                 'bag.contexts.bag_contents',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
@@ -198,8 +204,14 @@ if 'USE_AWS' in os.environ:
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-FREE_DELIVERY_THRESHOLD = 50
+FREE_DELIVERY_THRESHOLD = 18
 STANDARD_DELIVERY = 4.99
+
+# Stripe
+STRIPE_CURRENCY = 'GBP'
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
 
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

@@ -10,13 +10,20 @@ def products(request):
 
     products = Product.objects.all()
     images = ProductImage.objects.all()
+    cover_images = []
+
+    for p in products:
+        for i in images:
+            if i.product == p:
+                cover_images.append(i)
+                break
 
     return render(
         request,
         'products/products.html',
         {
             'products': products,
-            'images': images
+            'cover_images': cover_images
         }
     )
 

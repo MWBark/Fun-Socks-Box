@@ -35,9 +35,6 @@ def bag_contents(request):
                     'size': size,
                 })
 
-    print(bag_items)
-
-
     if total < settings.FREE_DELIVERY_THRESHOLD and product_count > 0:
         delivery = Decimal(settings.STANDARD_DELIVERY)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total

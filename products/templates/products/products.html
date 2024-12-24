@@ -16,18 +16,26 @@
     <div class="row h-100">
         {% for p in products %}
         <div class="col-12 col-md-4 my-auto">
-            <a href="{% url 'product_detail' p.id %}" style="text-decoration: none;">
-                <div class="card rounded-0 text-center">
-                    <div class="card-body">
-                        <h3 class="card-title">{{ p.name }}</h3>
-                        {% for i in cover_images %}
-                            {% if i.product == p %}
+            <div class="card rounded-0 text-center">
+                <div class="card-body">
+                    <h3 class="card-title text-black">
+                        {{ p.name }}
+                        {% if request.user.is_superuser %}
+                        <button type="button" class="btn btn-outline-danger rounded-0 mb-2" data-toggle="modal"
+                            data-target="#deleteModal" data-product_id="{{ p.id }}">
+                            <i class="fa-solid fa-minus"></i>
+                        </button>
+                        {% endif %}
+                    </h3>
+                    {% for i in cover_images %}
+                        {% if i.product == p %}
+                        <a href="{% url 'product_detail' p.id %}">
                             <img src="{{ i.image.url }}" class="card-img-bottom" alt="...">
-                            {% endif %}
-                        {% endfor %}
-                    </div>
+                        </a>
+                        {% endif %}
+                    {% endfor %}
                 </div>
-            </a>
+            </div>
         </div>
         {% endfor %}
     </div>
@@ -40,4 +48,18 @@
     </a>
     {% endif %}
 </div>
+
+{% include 'products/includes/delete_modal.html' %}
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+
+<script type="text/javascript">
+    $('.btn-outline-danger').click(function (e) {
+        var productId = $(this).attr('data-product_id');
+        $( '.modal-title' ).text( "Delete Product" );
+        $('#deleteConfirm').attr('href', `delete/${productId}`);
+    })
+</script>
 {% endblock %}

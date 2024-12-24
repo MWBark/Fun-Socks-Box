@@ -39,7 +39,7 @@ def product_detail(request, product_id):
         'images': images,
     }
 
-    return render(request, 'products/product_detail.html', context)
+    return render(request, 'products/product-detail.html', context)
 
 
 @login_required
@@ -60,12 +60,55 @@ def add_product(request):
     else:
         form = ProductForm()
 
-    template = 'products/add_product.html'
+    template = 'products/add-product.html'
     context = {
         'form': form,
     }
 
     return render(request, template, context)
+
+
+@login_required
+def update_product(request, product_id):
+    """Update a product in the store"""
+    if not request.user.is_superuser:
+        messages.error(request, "Sorry, only store owners can do that.")
+        return redirect(reverse('home'))
+
+    product = get_object_or_404(Product, pk=product_id)
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            product = form.save()
+            messages.success(request, "Successfully updated product!")
+            return redirect(reverse('product_detail', args=[product.id]))
+        else:
+            messages.error(request, "Failed to add product. Please ensure the form is valid.")
+    else:
+        form = ProductForm(instance=product)
+
+    template = 'products/update-product.html'
+    context = {
+        'product': product,
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def delete_product(request, product_id):
+    """Delete a product in the store"""
+    if not request.user.is_superuser:
+        messages.error(request, "Sorry, only store owners can do that.")
+        return redirect(reverse('home'))
+
+    product = get_object_or_404(Product, pk=product_id)
+    product.delete()
+
+    messages.success(request, "Successfully deleted product!")
+    return redirect(reverse('products'))
 
 
 @login_required

@@ -96,6 +96,17 @@
                             </div>
                         </div>
 
+                        {% if request.user.is_superuser %}
+                        <div class="col-12">
+                            <a href="{% url 'update_product' product.id %}" class="btn btn-outline-black rounded-0 mt-5">
+                                <span class="icon">
+                                    <i class="fa-solid fa-arrows-rotate"></i>
+                                </span>
+                                <span class="text-uppercase">Update Product</span>
+                            </a>
+                        </div>
+                        {% endif %}
+
                         <div class="col{% if s %}-12 mt-2{% endif %}">
                             <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
                                 <span class="icon">

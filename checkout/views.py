@@ -20,7 +20,6 @@ def cache_checkout_data(request):
         stripe.api_key = settings.STRIPE_SECRET_KEY
         stripe.PaymentIntent.modify(pid, metadata={
             'bag': json.dumps(request.session.get('bag', {})),
-            'save_info': request.POST.get('save_info'),
             'username': request.user,
         })
         return HttpResponse(status=200)
@@ -55,6 +54,7 @@ def checkout(request):
             order.stripe_pid = pid
             order.original_bag = json.dumps(bag)
             order.save()
+            print(order)
             for item_id, item_data in bag.items():
                 try:
                     product = Product.objects.get(id=item_id)
@@ -77,12 +77,11 @@ def checkout(request):
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your bag wasn't found in our database. "
-                        "Please call us for assistance!")
+                        "Please contact us for assistance!")
                     )
                     order.delete()
                     return redirect(reverse('view_bag'))
 
-            request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
@@ -141,7 +140,6 @@ def checkout_success(request, order_number):
     """
     Handle successful checkouts
     """
-    save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
     if request.user.is_authenticated:
@@ -149,20 +147,6 @@ def checkout_success(request, order_number):
         # Attacth the user's profile to the order
         order.user_profile = profile
         order.save()
-
-        # if save_info:
-        #     profile_data = {
-        #         'phone_number': order.phone_number,
-        #         'country': order.country,
-        #         'postcode': order.postcode,
-        #         'town_or_city': order.town_or_city,
-        #         'street_address1': order.street_address1,
-        #         'street_address2': order.street_address2,
-        #         'county': order.county,
-        #     }
-        #     user_profile_form = AddressForm(profile_data, instance=profile)
-        #     if user_profile_form.is_valid():
-        #         user_profile_form.save()
 
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \

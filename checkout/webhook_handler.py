@@ -52,7 +52,6 @@ class StripeWH_Handler:
         intent = event.data.object
         pid = intent.id
         bag = intent.metadata.bag
-        save_info = intent.metadata.save_info
 
         # Get the Charge object
         stripe_charge = stripe.Charge.retrieve(
@@ -68,22 +67,11 @@ class StripeWH_Handler:
             if value == "":
                 shipping_details.address[field] = None
 
-        # Update profile information if save_info was checked
         profile = None
         username = intent.metadata.username
         if username != 'AnonymousUser':
             profile = Profile.objects.get(user__username=username)
             form = AddressForm()
-            if save_info:
-                form.user = profile
-                form.phone_number = shipping_details.phone
-                form.country = shipping_details.address.country
-                form.postcode = shipping_details.address.postal_code
-                form.town_or_city = shipping_details.address.city
-                form.street_address1 = shipping_details.address.line1
-                form.street_address2 = shipping_details.address.line2
-                form.county = shipping_details.address.state
-                form.save()
 
         order_exists = False
         attempt = 1

@@ -71,7 +71,6 @@ class StripeWH_Handler:
         username = intent.metadata.username
         if username != 'AnonymousUser':
             profile = Profile.objects.get(user__username=username)
-            form = AddressForm()
 
         order_exists = False
         attempt = 1

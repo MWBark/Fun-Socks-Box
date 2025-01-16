@@ -8,4 +8,5 @@ urlpatterns = [
     path('addresses/update/<int:address_id>/', views.update_address, name='update_address'),
     path('addresses/delete/<int:address_id>/', views.delete_address, name='delete_address'),
     path('addresses/default/<int:address_id>/', views.set_default, name='set_default'),
+    path('subscriptions', views.manage_subscriptions, name='manage_subscriptions'),
 ]

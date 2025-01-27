@@ -102,10 +102,3 @@ def set_default(request, address_id):
 
     messages.success(request, "Default set successfully")
     return redirect(reverse('addresses'))
-
-
-@login_required
-def manage_subscriptions(request):
-    template = 'profiles/manage-subscriptions.html'
-
-    return render(request, template)

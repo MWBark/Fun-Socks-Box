@@ -78,7 +78,8 @@
                         <div class="dropdown-menu border-0" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
                             <a href="{% url 'addresses' %}" class="dropdown-item">Address Book</a>
-                            <a href="{% url 'manage_subscriptions' %}" class="dropdown-item">Manage Subscriptions</a>
+                            <a href="https://billing.stripe.com/p/login/test_9AQ4gn3Dhd2jgEM7ss"
+                                target="_blank" rel="noopener" class="dropdown-item">Manage Subscription</a>
                             <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                             {% else %}
                             <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>

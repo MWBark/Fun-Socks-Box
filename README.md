@@ -26,9 +26,57 @@ According to the online e-commerce platform Shopify in their blog article titled
 
 ### Agile Methodology
 
+Github Issues were used to create User Stories to plan actions to take in the project. Issues contained acceptance criteria to guide me in creating features and knowing when they were completed.
+
+5 issues from the back catalog, with MoSCoW 'must have' ranking or highest available, were then put into a sprint/milestone to create a project iteration. Within the sprint, 3 issues (60%) were labeled 'must have' while the other 2 were labeled 'should have' or 'could have'.
+
+The issues from the sprint were then added to a 'Fun Socks Box' Project board 'Todo' column. Issues were then, by priority, moved to the 'In Progress' and then 'Done' coloumn on completion. Any issues not completed before the sprint/iteration deadline were added back to the back catalog for reprioritisation.
+
 ## Features
 
 ### Existing features
+
+**Header & Navigation**
+
+- Site name and logo redirects to home page.
+
+- ‘Subscribe’ and ‘Products’ link to related pages.
+
+- On smaller screen sizes ‘Home’, ‘Subscribe’ and ‘Products’ are contained in a dropdown from a burger button.
+
+- ‘My Account’ triggers a dropdown where users who haven't logged in can navigate to login and signup pages and logged in users can navigate to their ‘Address Book’ page, a logout page and a portal to Stripe to manage their subscription if they have one.
+
+- The bag icon links to the bag page and the price icon shows the grand total of the user’s current bag.
+
+- A banner alerts the user to the free delivery threshold.
+
+**Home**
+
+- An opaque card contains a description with site keywords relating to socks subscription box. A button links to the subscription page.
+
+- Another card contains the call to sign up to the site’s newsletter via Intuit Mailchimp.
+
+**Subscription**
+
+- A card contains pricing and details relating to the monthly subscription box as well as a link to Stripe to subscribe.
+
+**Products**
+
+- Cards show images and names of this month's socks products and link to related sock product when clicked.
+
+- Admin can see buttons to delete individual products and an ‘Add Product’ button to add a product.
+
+**Product Detail**
+
+- Slideshow of all related product images.
+
+- Name, description and price of product.
+
+- Buttons to select size any quantity when added to bag.
+
+- Buttons to 'Add to Bag' and 'Keep Shopping'.
+
+- Admin can 'Manage Images' and 'Update Product'.
 
 ### Future features
 

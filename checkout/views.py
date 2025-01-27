@@ -116,7 +116,7 @@ def checkout(request):
                     'street_address2': address.street_address2,
                     'county': address.county,
                 })
-            except Profile.DoesNotExist:
+            except Address.DoesNotExist:
                 order_form = OrderForm()
         else:
             order_form = OrderForm()

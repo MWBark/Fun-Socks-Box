@@ -17,24 +17,24 @@
         {% for p in products %}
         <div class="col-12 col-md-4 my-auto">
             <div class="card rounded-0 text-center">
-                <div class="card-body">
-                    <h3 class="card-title text-black">
-                        {{ p.name }}
-                        {% if request.user.is_superuser %}
-                        <button type="button" class="btn btn-outline-danger rounded-0 mb-2" data-toggle="modal"
-                            data-target="#deleteModal" data-product_id="{{ p.id }}">
-                            <i class="fa-solid fa-minus"></i>
-                        </button>
-                        {% endif %}
-                    </h3>
-                    {% for i in cover_images %}
-                        {% if i.product == p %}
-                        <a href="{% url 'product_detail' p.id %}">
-                            <img src="{{ i.image.url }}" class="card-img-bottom" alt="...">
-                        </a>
-                        {% endif %}
-                    {% endfor %}
-                </div>
+                <a href="{% url 'product_detail' p.id %}" style="text-decoration: none;">
+                    <div class="card-body">
+                        <h3 class="card-title text-black">
+                            {{ p.name }}
+                            {% if request.user.is_superuser %}
+                            <button type="button" class="btn btn-outline-danger rounded-0 mb-2" data-toggle="modal"
+                                data-target="#deleteModal" data-product_id="{{ p.id }}">
+                                <i class="fa-solid fa-minus"></i>
+                            </button>
+                            {% endif %}
+                        </h3>
+                        {% for i in cover_images %}
+                            {% if i.product == p %}
+                                <img src="{{ i.image.url }}" class="card-img-bottom" alt="{{ p.description }}">
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </a>
             </div>
         </div>
         {% endfor %}

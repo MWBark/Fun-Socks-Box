@@ -51,7 +51,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addModalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="addModalLabel">Add image</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -84,7 +84,7 @@
 <script type="text/javascript">
     $('.btn-outline-danger').click(function (e) {
         var imageId = $(this).attr('data-image_id');
-        $( '.modal-title' ).text( "Delete Image" );
+        $('#deleteModalLabel').text( "Delete Image" );
         $('#deleteConfirm').attr('href', `images/delete/${imageId}`);
     })
 </script>

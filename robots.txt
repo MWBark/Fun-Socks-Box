@@ -1,0 +1,3 @@
+User-Agent: *
+Disallow:
+Sitemap: https://mwbark-funsocksbox-6de564e8a4a8.herokuapp.com/sitemap.xml

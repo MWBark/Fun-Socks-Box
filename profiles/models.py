@@ -7,6 +7,7 @@ from django_countries.fields import CountryField
 
 
 class Profile(models.Model):
+    """A user profile inline with Django's User model"""
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(null=True, blank=True)
 
@@ -23,6 +24,7 @@ def create_or_update_profile(sender, instance, created, **kwargs):
 
 
 class Address(models.Model):
+    """An address linked to a profile"""
     user = models.ForeignKey(Profile, on_delete=models.CASCADE)
     full_name = models.CharField(max_length=50, null=True, blank=True)
     phone_number = models.CharField(max_length=20, null=True, blank=True)

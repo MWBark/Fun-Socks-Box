@@ -7,6 +7,7 @@ from .forms import ProductForm, ImageForm
 
 
 def products(request):
+    """Showns all products"""
 
     products = Product.objects.all()
     images = ProductImage.objects.all()
@@ -133,6 +134,7 @@ def images(request, product_id):
 
 
 def add_image(request, product_id):
+    """Add an image related to a product"""
     if not request.user.is_superuser:
         messages.error(request, "Sorry, only store owners can do that.")
         return redirect(reverse('home'))
@@ -151,6 +153,7 @@ def add_image(request, product_id):
 
 
 def delete_image(request, product_id, image_id):
+    """Delete an image related to a product"""
     if not request.user.is_superuser:
         messages.error(request, "Sorry, only store owners can do that.")
         return redirect(reverse('home'))

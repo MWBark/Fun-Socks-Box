@@ -5,7 +5,10 @@ from .forms import MessageForm
 
 
 def contact(request):
-    """"""
+    """
+    Renders contact page with form.
+    Saves successful posts as Message object.
+    """
     if request.method == "POST":
         form = MessageForm(data=request.POST)
         if form.is_valid():

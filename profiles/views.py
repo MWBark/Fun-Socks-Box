@@ -8,7 +8,7 @@ from .forms import AddressForm
 
 @login_required
 def addresses(request):
-    """"""
+    """Show all addresses related to a Profile"""
     profile = get_object_or_404(Profile, user=request.user)
     addresses = Address.objects.filter(user=profile)
 

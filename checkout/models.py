@@ -12,6 +12,7 @@ from profiles.models import Profile
 
 
 class Order(models.Model):
+    """Contains all info of a created order"""
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(Profile, on_delete=models.SET_NULL,
                                      null=True, blank=True, related_name='orders')
@@ -64,6 +65,7 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+    """Creates order line to be shown in checkout"""
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
     product_size = models.CharField(max_length=1, null=True, blank=True) # S, M, L

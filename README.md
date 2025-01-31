@@ -13,11 +13,15 @@ According to the online e-commerce platform Shopify in their blog article titled
 <summary>The Database Schema used for this project</summary>
 
 ![Entity Relationship Diagram](documentation/erd.jpeg)
+
+Due to time, the About, Review and Subscription models weren't implemented. Instead, an Address and a ProductImage model were used relating to the Profile and Product models respectivly
 </details>
 <BR>
 <details>
 
 <summary>Wireframes</summary>
+
+Again due to time, the basic design of the was bulit off the Code Institute Boutique Ado example
 
 <br>
 
@@ -176,6 +180,8 @@ The business aims towards a growing trend in subscription based sales and choose
 ### Marketing
 
 Both social media marketing with Facebook and content/email marketing in the form of a newsletter sent via Mailchimp are used to attract and keep the interest of customers.
+
+Unfortunately, I couldn't created a real facebook page as something didn't comply with their [Pages, Groups and Events Policies](https://www.facebook.com/policies_center/pages_groups_events/) and an error came up when clicking 'Create Page'. A mockup of what the page might have looked like is here in a [Facebook Mockup Page pdf](documentaion/funsocksbox-facebook.pdf).
 
 Future marketing options may include the use of paid advertising. These could be paid ads in search engines like Google or ads in other relevent online platforms. If the business grows large enough, influencer and affiliate marketing may be an option.
 

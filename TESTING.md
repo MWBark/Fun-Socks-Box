@@ -1,3 +1,38 @@
+## Code Validation
+
+### HTML
+
+HTML code was tested using the [W3C Validator](https://validator.w3.org/) via URI.
+
+
+### CSS
+
+CSS code was tested using the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) via text input. 
+
+### Javascript
+
+Javascript code was tested using [JSHint](https://jshint.com/).
+
+### Python
+
+Python files were tested using the [CI Python Linter](https://pep8ci.herokuapp.com/)
+
+### Lighthouse
+
+![lighthose results](documentation/funsocksbox-lighthouse.png)
+
+The Performance and Best Practices could be improved. Changing the pic file size could improve perfomance. The bad performance comes from the cookies from Stripe and Inuit Mailchimp.
+
+### Responsivness
+
+All webpages are responsive with the [Boostrap grid](https://getbootstrap.com/docs/5.3/layout/grid/) layout. The breakpoints of col-sm, col-md and col-lg where used respectivley for mobile, tablet and laptop screens
+
+### Browser Compatability
+
+I have tested the website in Chrome, Firefox and Edge
+
+**HOME**
+
 ### Manual Featrures Testing
 
 <details>
@@ -121,7 +156,6 @@ if admin
 **FOOTER**
 
 - Cotact us link > click > navigates to Contact page
-- Facebook link > click > opens Facebook page in new tab
 
 **CONTACT US**
 

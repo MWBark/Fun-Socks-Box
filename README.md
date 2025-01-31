@@ -181,7 +181,7 @@ The business aims towards a growing trend in subscription based sales and choose
 
 Both social media marketing with Facebook and content/email marketing in the form of a newsletter sent via Mailchimp are used to attract and keep the interest of customers.
 
-Unfortunately, I couldn't created a real facebook page as something didn't comply with their [Pages, Groups and Events Policies](https://www.facebook.com/policies_center/pages_groups_events/) and an error came up when clicking 'Create Page'. A mockup of what the page might have looked like is here in a [Facebook Mockup Page pdf](documentaion/funsocksbox-facebook.pdf).
+Unfortunately, I couldn't created a real facebook page as something didn't comply with their [Pages, Groups and Events Policies](https://www.facebook.com/policies_center/pages_groups_events/) and an error came up when clicking 'Create Page'. A mockup of what the page might have looked like is here in a [Facebook Mockup Page pdf](documentation/funsocksbox-facebook.pdf).
 
 Future marketing options may include the use of paid advertising. These could be paid ads in search engines like Google or ads in other relevent online platforms. If the business grows large enough, influencer and affiliate marketing may be an option.
 

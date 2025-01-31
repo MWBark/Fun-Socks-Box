@@ -57,7 +57,7 @@ class StripeWH_Handler:
         stripe_charge = stripe.Charge.retrieve(
             intent.latest_charge
         )
-        
+
         billing_details = stripe_charge.billing_details
         shipping_details = intent.shipping
         grand_total = round(stripe_charge.amount / 100, 2)
@@ -92,14 +92,14 @@ class StripeWH_Handler:
                 )
                 order_exists = True
                 break
-                
+
             except Order.DoesNotExist:
                 attempt += 1
                 time.sleep(1)
         if order_exists:
             self.send_conformation_email(order)
             return HttpResponse(
-                content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
+                content=f'WH received: {event["type"]} SUCCESS: already in DB',
                 status=200)
         else:
             order = None
@@ -145,7 +145,7 @@ class StripeWH_Handler:
 
         self.send_conformation_email(order)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
+            content=f'Wh received: {event["type"]} | SUCCESS: Order in WH',
             status=200)
 
     def handle_payment_intent_payment_failed(self, event):

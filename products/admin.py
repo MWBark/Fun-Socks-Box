@@ -10,5 +10,6 @@ class ProductsAdmin(admin.ModelAdmin):
 
     ordering = ('name',)
 
+
 admin.site.register(Product, ProductsAdmin)
 admin.site.register(ProductImage)

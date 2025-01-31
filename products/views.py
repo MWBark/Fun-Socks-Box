@@ -162,4 +162,3 @@ def delete_image(request, product_id, image_id):
     image.delete()
     messages.success(request, "Successfully deleted image!")
     return redirect(reverse('images', args=[product_id]))
-

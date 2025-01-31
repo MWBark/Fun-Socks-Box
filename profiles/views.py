@@ -36,10 +36,10 @@ def add_address(request):
             messages.success(request, "Address added successfully")
             return redirect(reverse('addresses'))
         else:
-            messages.error(request, "Update failed. Please ensure the form is valid.")
+            messages.error(request, "Failed. Please ensure the form is valid.")
     else:
         form = AddressForm()
-    
+
     template = 'profiles/add-address.html'
     context = {
         'form': form,
@@ -63,7 +63,7 @@ def update_address(request, address_id):
             messages.success(request, "Address updated successfully")
             return redirect(reverse('addresses'))
         else:
-            messages.error(request, "Update failed. Please ensure the form is valid.")
+            messages.error(request, "Failed. Please ensure the form is valid.")
     else:
         form = AddressForm(instance=address)
 
@@ -93,7 +93,7 @@ def set_default(request, address_id):
     addresses = Address.objects.filter(user=profile)
     address = get_object_or_404(Address, pk=address_id)
 
-    for a in addresses:                    
+    for a in addresses:
         a.default = False
         a.save()
 

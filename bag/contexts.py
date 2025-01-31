@@ -3,6 +3,7 @@ from django.conf import settings
 from decimal import Decimal
 from products.models import Product, ProductImage
 
+
 def bag_contents(request):
 
     bag_items = []

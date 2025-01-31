@@ -16,7 +16,7 @@ def contact(request):
             messages.success(request, "Message sent!")
             return redirect(reverse('contact'))
         else:
-            messages.error(request, "Failed to send message. Please ensure the form is valid.")
+            messages.error(request, "Failed. Please ensure the form is valid.")
 
     if request.user.is_authenticated:
         form = MessageForm(initial={
